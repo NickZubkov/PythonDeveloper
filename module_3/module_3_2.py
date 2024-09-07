@@ -1,5 +1,6 @@
-﻿def send_email(message, recipient, *, sender="university.help@gmail.com"):
-    default_sender = "university.help@gmail.com"
+﻿default_sender = "university.help@gmail.com"
+
+def send_email(message, recipient, *, sender=default_sender):
     allowed_domains = [".com", ".ru", ".net"]
 
     if "@" not in str(recipient) or "@" not in str(sender):
