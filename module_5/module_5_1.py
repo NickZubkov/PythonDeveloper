@@ -12,9 +12,19 @@
             print(i)
             i += 1
 
-h1 = House('ЖК Горский', 18)
-h2 = House('Домик в деревне', 2)
-h1.go_to(5)
-h2.go_to(10)
-h2.go_to(-1)
-h2.go_to(0)
+    def __len__(self):
+        return self.number_of_floors
+
+    def __str__(self):
+         return f"Название: {self.name} ,кол-во этажей: {self.number_of_floors}"
+
+def main():
+    h1 = House('ЖК Горский', 18)
+    h2 = House('Домик в деревне', 2)
+    h1.go_to(5)
+    h2.go_to(10)
+    h2.go_to(-1)
+    h2.go_to(0)
+
+if __name__ == "__main__":
+    main()
