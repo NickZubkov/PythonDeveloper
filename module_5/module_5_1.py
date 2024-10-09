@@ -18,6 +18,71 @@
     def __str__(self):
         return f"Название: {self.name} ,кол-во этажей: {self.number_of_floors}"
 
+    def __eq__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        else:
+            print(f"Внимание! тип {type(other)} не поддерживается методом __eq__")
+            return False
+
+    def __lt__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+        else:
+            print(f"Внимание! тип {type(other)} не поддерживается методом __lt__")
+            return False
+
+    def __le__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors <= other.number_of_floors
+        else:
+            print(f"Внимание! тип {type(other)} не поддерживается методом __le__")
+            return False
+
+    def __gt__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors > other.number_of_floors
+        else:
+            print(f"Внимание! тип {type(other)} не поддерживается методом __gt__")
+            return False
+
+    def __ge__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors >= other.number_of_floors
+        else:
+            print(f"Внимание! тип {type(other)} не поддерживается методом __ge__")
+            return False
+
+    def __ne__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors != other.number_of_floors
+        else:
+            print(f"Внимание! тип {type(other)} не поддерживается методом __ne__")
+            return False
+
+    def __add__(self, value):
+        if isinstance(value, int):
+            self.number_of_floors += value
+            return self
+        else:
+            print(f"Внимание! тип {type(value)} не поддерживается методом __add__")
+            return self
+
+    def __radd__(self, value):
+        if isinstance(value, int):
+            return self.__add__(value)
+        else:
+            print(f"Внимание! тип {type(value)} не поддерживается методом __radd__")
+            return self
+
+    def __iadd__(self, value):
+        if isinstance(value, int):
+            return self.__add__(value)
+        else:
+            print(f"Внимание! тип {type(value)} не поддерживается методом __iadd__")
+            return self
+
+
 def main():
     h1 = House('ЖК Горский', 18)
     h2 = House('Домик в деревне', 2)
