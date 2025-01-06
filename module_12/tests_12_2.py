@@ -6,6 +6,8 @@ from module_12.runner_and_tournament import Runner, Tournament
 
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
+
     def setUp(self):
         self.runner1 = Runner("Усэйн", 10)
         self.runner2 = Runner("Андрей", 9)
@@ -15,16 +17,19 @@ class TournamentTest(unittest.TestCase):
     def setUpClass(cls):
         cls.all_results = {}
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены'")
     def test_race1(self):
         t = Tournament(90, self.runner1, self.runner3)
         self.all_results[0] = t.start()
         unittest.TestCase.assertTrue(self.all_results[0][1], "Ник")
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены'")
     def test_race2(self):
         t = Tournament(90, self.runner2, self.runner3)
         self.all_results[1] = t.start()
         unittest.TestCase.assertTrue(self.all_results[1][1], "Ник")
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены'")
     def test_race3(self):
         t = Tournament(90, self.runner1, self.runner2, self.runner3)
         self.all_results[2] = t.start()
